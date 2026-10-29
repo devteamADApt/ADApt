@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Download ADApt Beta</title>
+<meta name="description" content="Download the beta of ADApt, which checks Word, PowerPoint, Excel and PDF files for accessibility problems and fixes many of them.">
+<style>
+body { margin: 0; font-family: "Segoe UI", system-ui, -apple-system, sans-serif; background: #ffffff; }
+@media (prefers-color-scheme: dark) { body { background: #0f1a24; } }
+.adapt-skip { position: absolute; left: -999px; top: 0; background: #14202e; color: #fff; padding: .6rem 1rem; z-index: 10; }
+.adapt-skip:focus { left: 0; outline: 3px solid #ffd166; }
+.adapt-dl {
+  --ink: #14202e; --muted: #44505e; --paper: #ffffff; --line: #5b6b7d; --soft: #e8eef2;
+  --accent: #0a5c5a; --on-accent: #ffffff; --focus: #0b3fa0;
+  --warn-bg: #fff4dc; --warn-line: #8a4b00; --warn-ink: #3d2400;
+  color: var(--ink); background: var(--paper); font: inherit; line-height: 1.6;
+  max-width: 46rem; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; text-align: left;
+}
+@media (prefers-color-scheme: dark) {
+  .adapt-dl {
+    --ink: #eef3f7; --muted: #b9c4cf; --paper: #0f1a24; --line: #8798a8; --soft: #1b2a38;
+    --accent: #7fd1c7; --on-accent: #072321; --focus: #ffd166;
+    --warn-bg: #2a2008; --warn-line: #e0a43a; --warn-ink: #fbe9c4;
+  }
+}
+.adapt-dl *, .adapt-dl *::before, .adapt-dl *::after { box-sizing: border-box; }
+.adapt-dl { font-size: 1rem; }
+.adapt-dl p, .adapt-dl li, .adapt-dl dt, .adapt-dl dd, .adapt-dl td, .adapt-dl th, .adapt-dl summary, .adapt-dl caption
+  { font-size: inherit; line-height: inherit; }
+.adapt-dl h1, .adapt-dl h2, .adapt-dl h3 { line-height: 1.2; margin: 0 0 .6rem; color: var(--ink); text-transform: none; letter-spacing: normal; }
+.adapt-dl .adapt-title { font-size: clamp(2rem, 5.5vw, 2.8rem); font-weight: 750; letter-spacing: -.015em; }
+.adapt-dl .adapt-flag {
+  display: inline-block; vertical-align: .35em; margin-left: .15rem; padding: .05rem .55rem;
+  font-size: .95rem; font-weight: 700; letter-spacing: 0; border: 2px solid var(--warn-line);
+  background: var(--warn-bg); color: var(--warn-ink); border-radius: .25rem;
+}
+.adapt-dl .adapt-section { margin-top: 2.5rem; }
+.adapt-dl .adapt-section > h2, .adapt-dl .adapt-section > h3 { font-size: 1.4rem; font-weight: 700; }
+.adapt-dl p { margin: 0 0 1rem; max-width: 40rem; }
+.adapt-dl .adapt-lead { font-size: 1.15rem; max-width: 38rem; }
+.adapt-dl .adapt-muted { color: var(--muted); }
+.adapt-dl a { color: var(--accent); text-decoration: underline; text-underline-offset: .2em; }
+.adapt-dl a:focus-visible, .adapt-dl summary:focus-visible {
+  outline: 3px solid var(--focus); outline-offset: 3px;
+}
+.adapt-dl a.adapt-btn {
+  display: inline-block; background: var(--accent); color: var(--on-accent); text-decoration: none;
+  font-size: 1.15rem; font-weight: 700; padding: .85rem 1.5rem; border: 2px solid var(--accent);
+  border-radius: .35rem;
+}
+.adapt-dl a.adapt-btn:hover { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.adapt-dl .adapt-beta {
+  margin: 1.75rem 0 0; padding: 1rem 1.25rem; background: var(--warn-bg); color: var(--warn-ink);
+  border-left: .5rem solid var(--warn-line);
+}
+.adapt-dl .adapt-beta h2 { font-size: 1.15rem; color: var(--warn-ink); }
+.adapt-dl .adapt-beta p { margin: 0 0 .6rem; }
+.adapt-dl .adapt-beta p:last-child { margin-bottom: 0; }
+.adapt-dl .adapt-get { margin-top: 2rem; }
+.adapt-dl dl.adapt-facts {
+  display: grid; grid-template-columns: max-content 1fr; gap: .3rem 1.5rem; margin: 1.5rem 0 0;
+}
+.adapt-dl dl.adapt-facts dt { font-weight: 650; color: var(--muted); }
+.adapt-dl dl.adapt-facts dd { margin: 0; }
+.adapt-dl table { width: 100%; border-collapse: collapse; border: 0; background: transparent; }
+.adapt-dl caption { text-align: left; color: var(--muted); font-size: .95rem; padding: 0 0 .5rem; }
+.adapt-dl th, .adapt-dl td { text-align: left; vertical-align: top; padding: .65rem .8rem; border-bottom: 1px solid var(--line); overflow-wrap: break-word; }
+.adapt-dl thead th { background: var(--soft); border-bottom: 2px solid var(--line); }
+.adapt-dl td.adapt-num, .adapt-dl th.adapt-num { text-align: right; font-variant-numeric: tabular-nums; }
+.adapt-dl ol, .adapt-dl ul { margin: 0 0 1rem; padding-left: 1.4rem; max-width: 40rem; }
+.adapt-dl li { margin-bottom: .45rem; }
+.adapt-dl details { max-width: 40rem; }
+.adapt-dl summary { cursor: pointer; font-weight: 650; padding: .3rem 0; }
+.adapt-dl code { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; font-size: .95em;
+  background: var(--soft); padding: .1rem .35rem; border-radius: .2rem; word-break: break-all; }
+.adapt-dl pre { background: var(--soft); padding: .8rem 1rem; overflow-x: auto; margin: .5rem 0 1rem; border-radius: .25rem; }
+.adapt-dl pre code { background: none; padding: 0; word-break: normal; }
+@media (max-width: 36rem) {
+  .adapt-dl th, .adapt-dl td { padding: .55rem .45rem; font-size: .95rem; }
+  .adapt-dl dl.adapt-facts { grid-template-columns: 1fr; gap: 0; }
+  .adapt-dl dl.adapt-facts dd { margin-bottom: .6rem; }
+}
+@media (prefers-reduced-motion: reduce) { .adapt-dl * { transition: none !important; animation: none !important; } }
+</style>
+</head>
+<body>
+<a class="adapt-skip" href="#main">Skip to the download</a>
+<main id="main">
+<section class="adapt-dl" aria-labelledby="adapt-dl-title">
+  <h1 class="adapt-title" id="adapt-dl-title">Download ADApt <span class="adapt-flag">Beta</span></h1>
+  <p class="adapt-lead">ADApt checks Word, PowerPoint, Excel and PDF files for accessibility problems, fixes the ones it can fix safely, and shows you what is left. Everything runs on your computer, and nothing is uploaded.</p>
+
+  <p class="adapt-get">
+    <a class="adapt-btn" href="https://github.com/raapid/ADApt/releases/download/v0.9.0-beta/ADApt-Beta-Setup.zip">Download ADApt Beta for Windows</a>
+  </p>
+  <dl class="adapt-facts">
+    <dt>Version</dt><dd>0.9.0-beta</dd>
+    <dt>Works on</dt><dd>Windows 10 and 11, 64-bit</dd>
+    <dt>File</dt><dd>ADApt-Beta-Setup.zip, 57.3 MB</dd>
+    <dt>Released</dt><dd>28 October 2026</dd>
+  </dl>
+
+  <aside class="adapt-beta" aria-labelledby="adapt-dl-beta">
+    <h2 id="adapt-dl-beta">This is a beta</h2>
+    <p>ADApt is a test version. It can make mistakes and will not find every accessibility problem. It is not a legal compliance certification, so check each corrected file before you use it.</p>
+    <p>Your original files are never changed unless you choose to replace them. Corrected copies are saved next to them as <code>name_accessible.docx</code>.</p>
+  </aside>
+
+  <div class="adapt-section">
+    <h2>What a run looks like</h2>
+    <p>ADApt scans each file, fixes what it can, and then scans the saved copy again to confirm each fix worked. It only counts a fix once the problem is gone.</p>
+      <table>
+        <caption>Results for a sample 7-page report that was built to fail accessibility checks</caption>
+        <thead><tr><th scope="col">Result</th><th scope="col" class="adapt-num">Issues</th><th scope="col">What it means</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Found</th><td class="adapt-num">18</td><td>Problems in the original file.</td></tr>
+          <tr><th scope="row">Fixed and confirmed</th><td class="adapt-num">10</td><td>Fixed automatically, then checked by scanning the saved copy again.</td></tr>
+          <tr><th scope="row">Waiting for you</th><td class="adapt-num">8</td><td>Images that need a description. ADApt drafts one from the nearby text, and you approve or rewrite it.</td></tr>
+        </tbody>
+      </table>
+  </div>
+
+  <div class="adapt-section">
+    <h2>What it fixes</h2>
+      <table>
+        <thead><tr><th scope="col">Problem</th><th scope="col">What ADApt does</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">No document title</th><td>Sets one from the document's first heading or line.</td></tr>
+          <tr><th scope="row">No document language</th><td>Sets the language you choose, so screen readers use the right voice.</td></tr>
+          <tr><th scope="row">Headings that are only big, bold text</th><td>Turns them into real headings, with levels based on text size.</td></tr>
+          <tr><th scope="row">Tables with no header row</th><td>Marks the first row of each table as the header.</td></tr>
+          <tr><th scope="row">Images with no description, or only a file name</th><td>Queues a draft description for you to approve, and marks tiny or line-like images as decorative.</td></tr>
+          <tr><th scope="row">Excel links with no text</th><td>Uses the web address as the link text.</td></tr>
+        </tbody>
+      </table>
+    <p class="adapt-muted" style="margin-top:1rem">A page preview marks each problem with a number that matches the list, and you can edit any title, description, heading or table header afterward. You can check one document or a whole folder at once.</p>
+  </div>
+
+  <div class="adapt-section">
+    <h2>What it does not cover yet</h2>
+    <ul>
+      <li>PDFs are checked, and ADApt sets their title and language. It does not repair scanned pages or add tags.</li>
+      <li>It does not yet check color contrast, text inside images, links that only say "click here", or lists typed by hand.</li>
+      <li>It only sees images placed in line with the text, not images floating beside it.</li>
+    </ul>
+  </div>
+
+  <div class="adapt-section">
+    <h2>Install it</h2>
+    <ol>
+      <li>Download the zip file, then right-click it and choose <strong>Extract All</strong>.</li>
+      <li>Open <code>ADApt-Beta-Setup.exe</code> and follow the steps.</li>
+      <li>If Windows says <strong>Windows protected your PC</strong>, choose <strong>More info</strong>, then <strong>Run anyway</strong>. The beta is not code-signed yet.</li>
+      <li>Open <strong>ADApt (Beta)</strong> from the Start menu.</li>
+    </ol>
+    <p>To preview Word, PowerPoint and Excel pages, Microsoft Office or LibreOffice must be installed. PDFs preview without either.</p>
+    <details>
+      <summary>Check that your download is the one we published</summary>
+      <p>In PowerShell, run this command in the folder that holds the file, and compare the result with the checksum below.</p>
+      <pre><code>Get-FileHash .\ADApt-Beta-Setup.zip -Algorithm SHA256</code></pre>
+      <p>SHA-256: <code>F26A7B6F3E42D7C6A26CB968CAF33B5B082BF67939F685813E6AECF5115A5C35</code></p>
+    </details>
+  </div>
+
+  <div class="adapt-section">
+    <h2>Report a problem</h2>
+    <p>Tell us what you did, what you expected, and what happened. A screenshot helps.</p>
+    <p><a href="mailto:devteamadapt@gmail.com?subject=ADApt%20Beta%20problem">Email your report to devteamadapt@gmail.com</a></p>
+  </div>
+</section>
+</main>
+</body>
+</html>
